@@ -1,0 +1,80 @@
+@{
+    ViewData["Title"] = "API Test";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">API Connection Test</h2>
+    <a asp-action="Index" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-clockwise me-1"></i>Refresh Test
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">API Endpoint Test Results</h5>
+        <p class="text-muted">This page tests the connection to various API endpoints to ensure everything is working correctly.</p>
+
+        @if (ViewBag.TestResults != null)
+        {
+            <div class="row">
+                @foreach (var result in ViewBag.TestResults as Dictionary<string, object>)
+                {
+                    <div class="col-md-6 mb-3">
+                        <div class="card @(result.Value.GetType().GetProperty("Success")?.GetValue(result.Value)?.ToString() == "True" ? "border-success" : "border-danger")">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    @if (result.Value.GetType().GetProperty("Success")?.GetValue(result.Value)?.ToString() == "True")
+                                    {
+                                        <i class="bi bi-check-circle-fill text-success me-2" style="font-size: 1.5rem;"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-x-circle-fill text-danger me-2" style="font-size: 1.5rem;"></i>
+                                    }
+                                    <div>
+                                        <h6 class="card-title mb-1">@result.Key</h6>
+                                        <p class="card-text mb-1">@result.Value.GetType().GetProperty("Message")?.GetValue(result.Value)</p>
+                                        @if (result.Value.GetType().GetProperty("Count") != null)
+                                        {
+                                            <small class="text-muted">Count: @result.Value.GetType().GetProperty("Count")?.GetValue(result.Value)</small>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                No test results available. Please refresh the page to run the tests.
+            </div>
+        }
+
+        <div class="mt-4">
+            <h6>Tested Endpoints:</h6>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle text-success me-2"></i>Products API - <code>GET /api/Product</code></li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Categories API - <code>GET /api/Product/dropdown/categories</code></li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Suppliers API - <code>GET /api/Product/dropdown/suppliers</code></li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Dashboard API - <code>GET /api/Dashboard/summary</code></li>
+            </ul>
+        </div>
+
+        <div class="mt-4">
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle me-2"></i>
+                <strong>Note:</strong> If any tests fail, please check:
+                <ul class="mb-0 mt-2">
+                    <li>API server is running on <code>https://localhost:7066</code></li>
+                    <li>Database connection is properly configured</li>
+                    <li>Authentication tokens are valid (if required)</li>
+                    <li>Network connectivity between MVC app and API</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,315 @@
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Dashboard</h2>
+    <div class="d-flex gap-2">
+        <button type="button" class="btn btn-outline-primary" onclick="loadQuickStats()">
+            <i class="bi bi-arrow-clockwise me-2"></i>Refresh Stats
+        </button>
+        <form method="get" class="d-flex gap-2">
+            <input type="date" name="start" value="@ViewBag.StartDate" class="form-control" />
+            <input type="date" name="end" value="@ViewBag.EndDate" class="form-control" />
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+    </div>
+</div>
+
+<!-- Quick Stats Cards -->
+<div class="row mb-4" id="quickStatsContainer">
+    <div class="col-md-3 mb-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Total Products</h6>
+                        <h3 class="mb-0">@Model.TotalProducts</h3>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-box-seam fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Total Categories</h6>
+                        <h3 class="mb-0">@Model.TotalCategories</h3>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-tags fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Total Suppliers</h6>
+                        <h3 class="mb-0">@Model.TotalSuppliers</h3>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-truck fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-title">Total Users</h6>
+                        <h3 class="mb-0">@Model.TotalUsers</h3>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-people fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Financial Summary -->
+<div class="row mb-4">
+    <div class="col-md-4 mb-3">
+        <div class="card bg-gradient-primary text-white">
+            <div class="card-body">
+                <h6 class="card-title">Total Purchases</h6>
+                <h4 class="mb-0">₹@Model.TotalPurchaseAmount.ToString("N2")</h4>
+                <small>@Model.TotalPurchases transactions</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-gradient-success text-white">
+            <div class="card-body">
+                <h6 class="card-title">Total Sales</h6>
+                <h4 class="mb-0">₹@Model.TotalSaleAmount.ToString("N2")</h4>
+                <small>@Model.TotalSales transactions</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-gradient-info text-white">
+            <div class="card-body">
+                <h6 class="card-title">Net Profit</h6>
+                <h4 class="mb-0">₹@Model.NetProfit.ToString("N2")</h4>
+                <small>Sales - Purchases</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts and Data -->
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Products by Category</h5>
+            </div>
+            <div class="card-body">
+                @if (Model.ProductsByCategory.Any())
+                {
+                    <canvas id="categoryChart" width="400" height="200"></canvas>
+                }
+                else
+                {
+                    <p class="text-muted text-center">No data available</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Top Products</h5>
+            </div>
+            <div class="card-body">
+                @if (Model.TopProducts.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Category</th>
+                                    <th>Stock</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in Model.TopProducts.Take(5))
+                                {
+                                    <tr>
+                                        <td>@product.ProductName</td>
+                                        <td>@product.CategoryName</td>
+                                        <td>@product.StockQuantity</td>
+                                        <td>₹@product.Price</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-muted text-center">No products available</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Recent Activities</h5>
+            </div>
+            <div class="card-body">
+                @if (Model.RecentActivities.Any())
+                {
+                    <div class="timeline">
+                        @foreach (var activity in Model.RecentActivities.Take(10))
+                        {
+                            <div class="timeline-item">
+                                <div class="timeline-marker bg-primary"></div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">@activity.Type</h6>
+                                    <p class="mb-1">@activity.Description</p>
+                                    <small class="text-muted">@activity.Date.ToString("dd/MM/yyyy HH:mm")</small>
+                                    @if (activity.Amount.HasValue)
+                                    {
+                                        <span class="badge bg-success ms-2">₹@activity.Amount.Value.ToString("N2")</span>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-muted text-center">No recent activities</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Load quick stats
+    function loadQuickStats() {
+        fetch('@Url.Action("QuickStats", "Dashboard")')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Quick Stats:', data.data);
+                    // Update UI with quick stats if needed
+                } else {
+                    console.error('Failed to load quick stats:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading quick stats:', error);
+            });
+    }
+
+    // Initialize charts
+    document.addEventListener('DOMContentLoaded', function() {
+        @if (Model.ProductsByCategory.Any())
+        {
+            <text>
+            // Products by Category Chart
+            const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+            new Chart(categoryCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [@Html.Raw(string.Join(",", Model.ProductsByCategory.Keys.Select(k => $"'{k}'")))],
+                    datasets: [{
+                        data: [@string.Join(",", Model.ProductsByCategory.Values)],
+                        backgroundColor: [
+                            '#FF6384',
+                            '#36A2EB',
+                            '#FFCE56',
+                            '#4BC0C0',
+                            '#9966FF',
+                            '#FF9F40'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            </text>
+        }
+
+        // Load quick stats on page load
+        loadQuickStats();
+    });
+</script>
+
+<style>
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .timeline-marker {
+        position: absolute;
+        left: -35px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .timeline-content {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 3px solid #007bff;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(45deg, #007bff, #0056b3);
+    }
+
+    .bg-gradient-success {
+        background: linear-gradient(45deg, #28a745, #1e7e34);
+    }
+
+    .bg-gradient-info {
+        background: linear-gradient(45deg, #17a2b8, #117a8b);
+    }
+</style>

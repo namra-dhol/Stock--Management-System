@@ -1,0 +1,145 @@
+@model InvoiceModel
+@{
+    ViewData["Title"] = "Invoice Details";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Invoice Details</h2>
+    <div>
+        <a asp-action="Index" class="btn btn-outline-secondary me-2">
+            <i class="bi bi-arrow-left me-1"></i>Back to List
+        </a>
+        <button class="btn btn-primary-custom" onclick="window.print()">
+            <i class="bi bi-printer me-1"></i>Print
+        </button>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Invoice Information</h5>
+                <table class="table table-borderless">
+                    <tr>
+                        <td><strong>Invoice Number:</strong></td>
+                        <td>@Model.InvoiceNumber</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Invoice Date:</strong></td>
+                        <td>@Model.InvoiceDate?.ToString("MMM dd, yyyy")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Due Date:</strong></td>
+                        <td>@Model.DueDate?.ToString("MMM dd, yyyy")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Status:</strong></td>
+                        <td>
+                            <span class="badge @(Model.Status switch {
+                                "Paid" => "bg-success",
+                                "Pending" => "bg-warning",
+                                "Overdue" => "bg-danger",
+                                _ => "bg-secondary"
+                            })">
+                                @Model.Status
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h5>Customer Information</h5>
+                <table class="table table-borderless">
+                    <tr>
+                        <td><strong>Customer Name:</strong></td>
+                        <td>@Model.Customer?.CustomerName</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email:</strong></td>
+                        <td>@Model.Customer?.Email</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phone:</strong></td>
+                        <td>@Model.Customer?.Phone</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Address:</strong></td>
+                        <td>@Model.Customer?.Address</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <hr>
+
+        <h5>Financial Details</h5>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-borderless">
+                    <tr>
+                        <td><strong>Sub Total:</strong></td>
+                        <td>₹@Model.SubTotal?.ToString("N2")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discount (%):</strong></td>
+                        <td>@Model.DiscountPercentage?.ToString("N2")%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discount Amount:</strong></td>
+                        <td>₹@Model.DiscountAmount?.ToString("N2")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tax (%):</strong></td>
+                        <td>@Model.TaxPercentage?.ToString("N2")%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tax Amount:</strong></td>
+                        <td>₹@Model.TaxAmount?.ToString("N2")</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h6 class="card-title">Total Amount</h6>
+                        <h3 class="text-primary">₹@Model.TotalAmount?.ToString("N2")</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.Notes))
+        {
+            <hr>
+            <h5>Notes</h5>
+            <p class="text-muted">@Model.Notes</p>
+        }
+
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <small class="text-muted">
+                    <strong>Created:</strong> @Model.CreatedAt?.ToString("MMM dd, yyyy HH:mm")
+                </small>
+            </div>
+            <div class="col-md-6">
+                <small class="text-muted">
+                    <strong>Modified:</strong> @Model.ModifiedAt?.ToString("MMM dd, yyyy HH:mm")
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @@media print {
+        .btn, .card-header, .d-flex {
+            display: none !important;
+        }
+        .card {
+            border: none !important;
+            box-shadow: none !important;
+        }
+    }
+</style>

@@ -1,0 +1,205 @@
+@model ReportFilterModel
+@{
+    ViewData["Title"] = "Reports & Analytics";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Reports & Analytics</h2>
+    <div class="d-flex gap-2">
+        <a asp-action="GoodsReceiptList" class="btn btn-outline-primary">
+            <i class="bi bi-box-arrow-in-down me-2"></i>Goods Receipt
+        </a>
+    </div>
+</div>
+
+<!-- Filter Section -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0">Report Filters</h5>
+    </div>
+    <div class="card-body">
+        <form method="get" id="reportFilterForm">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label asp-for="StartDate" class="form-label"></label>
+                    <input asp-for="StartDate" class="form-control" type="date" />
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label asp-for="EndDate" class="form-label"></label>
+                    <input asp-for="EndDate" class="form-control" type="date" />
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label asp-for="SupplierId" class="form-label">Supplier</label>
+                    <select asp-for="SupplierId" asp-items="Model.SupplierList" class="form-control">
+                        <option value="">-- All Suppliers --</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label asp-for="CategoryId" class="form-label">Category</label>
+                    <select asp-for="CategoryId" asp-items="Model.CategoryList" class="form-control">
+                        <option value="">-- All Categories --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label asp-for="ProductId" class="form-label">Product</label>
+                    <select asp-for="ProductId" asp-items="Model.ProductList" class="form-control">
+                        <option value="">-- All Products --</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label asp-for="ExportFormat" class="form-label">Export Format</label>
+                    <select asp-for="ExportFormat" asp-items="Model.ExportFormatList" class="form-control">
+                        <option value="">-- Select Format --</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Report Cards -->
+<div class="row">
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100 report-card" onclick="generateReport('inventory')">
+            <div class="card-body text-center">
+                <div class="report-icon mb-3">
+                    <i class="bi bi-boxes display-4 text-primary"></i>
+                </div>
+                <h5 class="card-title">Inventory Report</h5>
+                <p class="card-text">View current stock levels, product values, and inventory status</p>
+                <div class="mt-auto">
+                    <button type="button" class="btn btn-primary btn-sm">Generate Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100 report-card" onclick="generateReport('sales')">
+            <div class="card-body text-center">
+                <div class="report-icon mb-3">
+                    <i class="bi bi-graph-up display-4 text-success"></i>
+                </div>
+                <h5 class="card-title">Sales Report</h5>
+                <p class="card-text">Analyze sales performance, trends, and customer data</p>
+                <div class="mt-auto">
+                    <button type="button" class="btn btn-success btn-sm">Generate Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100 report-card" onclick="generateReport('purchase')">
+            <div class="card-body text-center">
+                <div class="report-icon mb-3">
+                    <i class="bi bi-cart-plus display-4 text-info"></i>
+                </div>
+                <h5 class="card-title">Purchase Report</h5>
+                <p class="card-text">Track purchase orders, supplier performance, and costs</p>
+                <div class="mt-auto">
+                    <button type="button" class="btn btn-info btn-sm">Generate Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100 report-card" onclick="generateReport('profit-loss')">
+            <div class="card-body text-center">
+                <div class="report-icon mb-3">
+                    <i class="bi bi-currency-dollar display-4 text-warning"></i>
+                </div>
+                <h5 class="card-title">Profit & Loss</h5>
+                <p class="card-text">View financial performance, profit margins, and P&L analysis</p>
+                <div class="mt-auto">
+                    <button type="button" class="btn btn-warning btn-sm">Generate Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">Quick Actions</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <button type="button" class="btn btn-outline-primary w-100" onclick="exportReport('inventory')">
+                    <i class="bi bi-download me-2"></i>Export Inventory Report
+                </button>
+            </div>
+            <div class="col-md-4 mb-3">
+                <button type="button" class="btn btn-outline-success w-100" onclick="exportReport('sales')">
+                    <i class="bi bi-download me-2"></i>Export Sales Report
+                </button>
+            </div>
+            <div class="col-md-4 mb-3">
+                <button type="button" class="btn btn-outline-info w-100" onclick="exportReport('purchase')">
+                    <i class="bi bi-download me-2"></i>Export Purchase Report
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .report-card {
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .report-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .report-icon {
+        opacity: 0.8;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<script>
+    function generateReport(reportType) {
+        const form = document.getElementById('reportFilterForm');
+        const formData = new FormData(form);
+        const params = new URLSearchParams(formData);
+        
+        window.open(`@Url.Action("", "Reports")${reportType}Report?${params.toString()}`, '_blank');
+    }
+
+    function exportReport(reportType) {
+        const form = document.getElementById('reportFilterForm');
+        const formData = new FormData(form);
+        const exportFormat = document.querySelector('select[name="ExportFormat"]').value;
+        
+        if (!exportFormat) {
+            alert('Please select an export format first.');
+            return;
+        }
+        
+        const params = new URLSearchParams(formData);
+        window.location.href = `@Url.Action("ExportReport", "Reports")?reportType=${reportType}&format=${exportFormat}&${params.toString()}`;
+    }
+
+    // Auto-set end date when start date changes
+    document.querySelector('input[name="StartDate"]').addEventListener('change', function() {
+        const startDate = new Date(this.value);
+        const endDate = document.querySelector('input[name="EndDate"]');
+        if (!endDate.value) {
+            const defaultEndDate = new Date(startDate);
+            defaultEndDate.setMonth(defaultEndDate.getMonth() + 1);
+            endDate.value = defaultEndDate.toISOString().split('T')[0];
+        }
+    });
+</script>

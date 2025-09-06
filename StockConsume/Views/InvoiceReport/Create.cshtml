@@ -1,0 +1,188 @@
+@model InvoiceModel
+@{
+    ViewData["Title"] = "Create Invoice";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Create New Invoice</h2>
+    <a asp-action="Index" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i>Back to List
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Invoice Information</h5>
+                    <div class="mb-3">
+                        <label asp-for="InvoiceNumber" class="form-label"></label>
+                        <input asp-for="InvoiceNumber" class="form-control" placeholder="Leave empty for auto-generation" />
+                        <span asp-validation-for="InvoiceNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="InvoiceDate" class="form-label"></label>
+                        <input asp-for="InvoiceDate" class="form-control" type="date" />
+                        <span asp-validation-for="InvoiceDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DueDate" class="form-label"></label>
+                        <input asp-for="DueDate" class="form-control" type="date" />
+                        <span asp-validation-for="DueDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Status" class="form-label"></label>
+                        <select asp-for="Status" asp-items="Model.StatusList" class="form-select">
+                            <option value="">Select Status</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h5>Customer Information</h5>
+                    <div class="mb-3">
+                        <label asp-for="CustomerId" class="form-label"></label>
+                        <select asp-for="CustomerId" asp-items="Model.CustomerList" class="form-select">
+                            <option value="">Select Customer</option>
+                        </select>
+                        <span asp-validation-for="CustomerId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="SaleId" class="form-label"></label>
+                        <select asp-for="SaleId" asp-items="Model.SaleList" class="form-select">
+                            <option value="">Select Sale (Optional)</option>
+                        </select>
+                        <span asp-validation-for="SaleId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Financial Details</h5>
+                    <div class="mb-3">
+                        <label asp-for="SubTotal" class="form-label"></label>
+                        <input asp-for="SubTotal" class="form-control" type="number" step="0.01" />
+                        <span asp-validation-for="SubTotal" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="DiscountPercentage" class="form-label"></label>
+                                <input asp-for="DiscountPercentage" class="form-control" type="number" step="0.01" />
+                                <span asp-validation-for="DiscountPercentage" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="DiscountAmount" class="form-label"></label>
+                                <input asp-for="DiscountAmount" class="form-control" type="number" step="0.01" />
+                                <span asp-validation-for="DiscountAmount" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="TaxPercentage" class="form-label"></label>
+                                <input asp-for="TaxPercentage" class="form-control" type="number" step="0.01" />
+                                <span asp-validation-for="TaxPercentage" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="TaxAmount" class="form-label"></label>
+                                <input asp-for="TaxAmount" class="form-control" type="number" step="0.01" />
+                                <span asp-validation-for="TaxAmount" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="TotalAmount" class="form-label"></label>
+                        <input asp-for="TotalAmount" class="form-control" type="number" step="0.01" />
+                        <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h5>Additional Information</h5>
+                    <div class="mb-3">
+                        <label asp-for="Notes" class="form-label"></label>
+                        <textarea asp-for="Notes" class="form-control" rows="4" placeholder="Enter any additional notes..."></textarea>
+                        <span asp-validation-for="Notes" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary-custom">
+                    <i class="bi bi-check-circle me-1"></i>Create Invoice
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        // Auto-calculate discount amount when percentage changes
+        document.getElementById('DiscountPercentage').addEventListener('input', function() {
+            const percentage = parseFloat(this.value) || 0;
+            const subTotal = parseFloat(document.getElementById('SubTotal').value) || 0;
+            const discountAmount = (subTotal * percentage) / 100;
+            document.getElementById('DiscountAmount').value = discountAmount.toFixed(2);
+            calculateTotal();
+        });
+
+        // Auto-calculate tax amount when percentage changes
+        document.getElementById('TaxPercentage').addEventListener('input', function() {
+            const percentage = parseFloat(this.value) || 0;
+            const subTotal = parseFloat(document.getElementById('SubTotal').value) || 0;
+            const discountAmount = parseFloat(document.getElementById('DiscountAmount').value) || 0;
+            const taxableAmount = subTotal - discountAmount;
+            const taxAmount = (taxableAmount * percentage) / 100;
+            document.getElementById('TaxAmount').value = taxAmount.toFixed(2);
+            calculateTotal();
+        });
+
+        // Calculate total amount
+        function calculateTotal() {
+            const subTotal = parseFloat(document.getElementById('SubTotal').value) || 0;
+            const discountAmount = parseFloat(document.getElementById('DiscountAmount').value) || 0;
+            const taxAmount = parseFloat(document.getElementById('TaxAmount').value) || 0;
+            const total = subTotal - discountAmount + taxAmount;
+            document.getElementById('TotalAmount').value = total.toFixed(2);
+        }
+
+        // Recalculate when sub total changes
+        document.getElementById('SubTotal').addEventListener('input', function() {
+            const percentage = parseFloat(document.getElementById('DiscountPercentage').value) || 0;
+            const subTotal = parseFloat(this.value) || 0;
+            const discountAmount = (subTotal * percentage) / 100;
+            document.getElementById('DiscountAmount').value = discountAmount.toFixed(2);
+            calculateTotal();
+        });
+
+        // Set default invoice date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('InvoiceDate').value = today;
+        });
+    </script>
+}

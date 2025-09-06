@@ -1,0 +1,96 @@
+@model PaginatedUserResponse
+@{
+    ViewData["Title"] = "User List";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">User Management</h2>
+    <a asp-controller="User" asp-action="AddEdit" class="btn btn-primary-custom">
+        <i class="bi bi-plus-circle me-2"></i>Add New User
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Role</th>
+                        <th style="width: 150px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Users != null && Model.Users.Any())
+                    {
+                        int i = (Model.CurrentPage - 1) * Model.PageSize + 1;
+                        foreach (var item in Model.Users)
+                        {
+                            <tr>
+                                <td>@item.UserId</td>
+                                <td>@item.UserName</td>
+                                <td>@item.Email</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Address</td>
+                                <td>
+                                    <span class="badge @(item.Role == "Admin" ? "bg-danger" : "bg-primary")">
+                                        @item.Role
+                                    </span>
+                                </td>
+                                <td>
+                                    <a asp-action="AddEdit" asp-controller="User" asp-route-id="@item.UserId" class="btn btn-sm btn-primary">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </a>
+                                    <a asp-action="Delete" asp-controller="User" asp-route-id="@item.UserId" class="btn btn-sm btn-danger"
+                                       onclick="return confirm('Are you sure you want to delete this user?');">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center text-muted">No Users found.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-4">
+            @if (Model.CurrentPage > 1)
+            {
+                <a asp-action="UserList" asp-route-page="@(Model.CurrentPage - 1)" class="btn btn-outline-primary me-2">
+                    <i class="bi bi-chevron-left"></i> Previous
+                </a>
+            }
+
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                if (i == Model.CurrentPage)
+                {
+                    <span class="btn btn-primary me-1">@i</span>
+                }
+                else
+                {
+                    <a asp-action="UserList" asp-route-page="@i" class="btn btn-outline-primary me-1">@i</a>
+                }
+            }
+
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <a asp-action="UserList" asp-route-page="@(Model.CurrentPage + 1)" class="btn btn-outline-primary ms-2">
+                    Next <i class="bi bi-chevron-right"></i>
+                </a>
+            }
+        </div>
+    </div>
+</div>

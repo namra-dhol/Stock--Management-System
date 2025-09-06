@@ -1,0 +1,74 @@
+@{
+    ViewData["Title"] = "Query API Test";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Query API Test</h2>
+    <a asp-controller="Query" asp-action="SendQuery" class="btn btn-primary">
+        <i class="bi bi-envelope me-2"></i>Send Query
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">API Connection Test</h5>
+        
+        @if (ViewBag.TestResult != null)
+        {
+            <div class="alert alert-success">
+                <h6>✅ API Connection Successful!</h6>
+                <p><strong>Message:</strong> @ViewBag.TestResult.message</p>
+                <p><strong>Timestamp:</strong> @ViewBag.TestResult.timestamp</p>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                <p>Click the button below to test the Query API connection.</p>
+            </div>
+        }
+
+        <div class="d-flex gap-2">
+            <a href="@Url.Action("Test", "Query")" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-clockwise me-2"></i>Test API Connection
+            </a>
+            <a asp-controller="Query" asp-action="SendQuery" class="btn btn-primary">
+                <i class="bi bi-envelope me-2"></i>Send New Query
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Available Query Endpoints</h5>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge bg-success">GET</span></td>
+                        <td>/api/Query/test</td>
+                        <td>Test API connection</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-primary">POST</span></td>
+                        <td>/api/Query/send</td>
+                        <td>Send customer query via email</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-success">GET</span></td>
+                        <td>/api/Query/product/{id}</td>
+                        <td>Get product details for query</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

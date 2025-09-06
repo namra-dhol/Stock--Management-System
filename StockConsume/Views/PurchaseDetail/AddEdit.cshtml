@@ -1,0 +1,89 @@
+@model PurchaseDetailModel
+@{
+    ViewData["Title"] = Model.PurchaseDetailId == 0 ? "Add Purchase Detail" : "Edit Purchase Detail";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>@ViewData["Title"]</h2>
+    <a asp-action="PurchaseDetailList" class="btn btn-secondary">
+        <i class="bi bi-arrow-left me-2"></i>Back to List
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="AddEdit" asp-controller="PurchaseDetail" method="post">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <input type="hidden" asp-for="PurchaseDetailId" />
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="PurchaseId" class="form-label"></label>
+                    <select asp-for="PurchaseId" asp-items="ViewBag.PurchaseList" class="form-control" required>
+                        <option value="">-- Select Purchase --</option>
+                    </select>
+                    <span asp-validation-for="PurchaseId" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ProductId" class="form-label"></label>
+                    <select asp-for="ProductId" asp-items="ViewBag.ProductList" class="form-control" required>
+                        <option value="">-- Select Product --</option>
+                    </select>
+                    <span asp-validation-for="ProductId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Quantity" class="form-label"></label>
+                    <input asp-for="Quantity" class="form-control" type="number" min="1" required />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="UnitPrice" class="form-label"></label>
+                    <input asp-for="UnitPrice" class="form-control" type="number" step="0.01" min="0" required />
+                    <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="TotalPrice" class="form-label"></label>
+                    <input asp-for="TotalPrice" class="form-control" type="number" step="0.01" min="0" />
+                    <span asp-validation-for="TotalPrice" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary-custom">
+                    <i class="bi bi-check-circle me-2"></i>@(Model.PurchaseDetailId == 0 ? "Add" : "Update")
+                </button>
+                <a asp-action="PurchaseDetailList" class="btn btn-secondary">
+                    <i class="bi bi-x-circle me-2"></i>Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Auto-calculate total price when quantity or unit price changes
+    document.addEventListener('DOMContentLoaded', function() {
+        const quantityInput = document.querySelector('input[name="Quantity"]');
+        const unitPriceInput = document.querySelector('input[name="UnitPrice"]');
+        const totalPriceInput = document.querySelector('input[name="TotalPrice"]');
+
+        function calculateTotal() {
+            const quantity = parseFloat(quantityInput.value) || 0;
+            const unitPrice = parseFloat(unitPriceInput.value) || 0;
+            const total = quantity * unitPrice;
+            totalPriceInput.value = total.toFixed(2);
+        }
+
+        quantityInput.addEventListener('input', calculateTotal);
+        unitPriceInput.addEventListener('input', calculateTotal);
+    });
+</script>

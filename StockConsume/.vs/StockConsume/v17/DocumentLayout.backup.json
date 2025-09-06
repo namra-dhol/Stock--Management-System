@@ -1,0 +1,450 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Stock--Management-System\\StockConsume\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\query\\sendquery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\query\\sendquery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\controllers\\querycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:controllers\\querycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\models\\querydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:models\\querydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\models\\purchasemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:models\\purchasemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\models\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:models\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\models\\invoicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:models\\invoicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\product\\productlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\product\\productlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\invoicereport\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\invoicereport\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\product\\productlistnew.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\product\\productlistnew.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\controllers\\invoicereportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:controllers\\invoicereportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\viewmodels\\invoicereportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:viewmodels\\invoicereportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\product\\addedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\product\\addedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\purchase\\addedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\purchase\\addedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\controllers\\purchasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:controllers\\purchasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\register\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\register\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|d:\\stock--management-system\\stockconsume\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABA73EC9-C5F0-4C8D-BB82-A3730833DE02}|StockConsume.csproj|solutionrelative:controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SendQuery.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Query\\SendQuery.cshtml",
+              "RelativeDocumentMoniker": "Views\\Query\\SendQuery.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Query\\SendQuery.cshtml",
+              "RelativeToolTip": "Views\\Query\\SendQuery.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T07:06:25.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T07:04:18.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Shared\\_Layout.cshtml*",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml*",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAAAI4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T07:02:39.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "QueryController.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Controllers\\QueryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\QueryController.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Controllers\\QueryController.cs",
+              "RelativeToolTip": "Controllers\\QueryController.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAwwEsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T07:02:13.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "QueryDTO.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Models\\QueryDTO.cs",
+              "RelativeDocumentMoniker": "Models\\QueryDTO.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Models\\QueryDTO.cs",
+              "RelativeToolTip": "Models\\QueryDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T07:02:05.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PurchaseModel.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Models\\PurchaseModel.cs",
+              "RelativeDocumentMoniker": "Models\\PurchaseModel.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Models\\PurchaseModel.cs",
+              "RelativeToolTip": "Models\\PurchaseModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T07:00:07.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RegisterDTO.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Models\\RegisterDTO.cs",
+              "RelativeDocumentMoniker": "Models\\RegisterDTO.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Models\\RegisterDTO.cs",
+              "RelativeToolTip": "Models\\RegisterDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T07:00:05.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "InvoiceModel.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Models\\InvoiceModel.cs",
+              "RelativeDocumentMoniker": "Models\\InvoiceModel.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Models\\InvoiceModel.cs",
+              "RelativeToolTip": "Models\\InvoiceModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T06:59:58.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InvoiceController.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Controllers\\InvoiceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InvoiceController.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Controllers\\InvoiceController.cs",
+              "RelativeToolTip": "Controllers\\InvoiceController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T06:58:50.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\InvoiceReport\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\InvoiceReport\\Details.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\InvoiceReport\\Details.cshtml",
+              "RelativeToolTip": "Views\\InvoiceReport\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T06:58:16.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductListNew.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Product\\ProductListNew.cshtml",
+              "RelativeDocumentMoniker": "Views\\Product\\ProductListNew.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Product\\ProductListNew.cshtml",
+              "RelativeToolTip": "Views\\Product\\ProductListNew.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T06:57:00.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "InvoiceReportViewModel.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\ViewModels\\InvoiceReportViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\InvoiceReportViewModel.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\ViewModels\\InvoiceReportViewModel.cs",
+              "RelativeToolTip": "ViewModels\\InvoiceReportViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T06:40:39.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "InvoiceReportController.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Controllers\\InvoiceReportController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InvoiceReportController.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Controllers\\InvoiceReportController.cs",
+              "RelativeToolTip": "Controllers\\InvoiceReportController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T06:40:32.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProductList.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Product\\ProductList.cshtml",
+              "RelativeDocumentMoniker": "Views\\Product\\ProductList.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Product\\ProductList.cshtml",
+              "RelativeToolTip": "Views\\Product\\ProductList.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T06:13:31.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AddEdit.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Product\\AddEdit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Product\\AddEdit.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Product\\AddEdit.cshtml",
+              "RelativeToolTip": "Views\\Product\\AddEdit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T06:13:30.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-06T05:42:03.046Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AddEdit.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Purchase\\AddEdit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Purchase\\AddEdit.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Purchase\\AddEdit.cshtml",
+              "RelativeToolTip": "Views\\Purchase\\AddEdit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T05:24:12.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T05:20:51.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Register\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Register\\Index.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Register\\Index.cshtml",
+              "RelativeToolTip": "Views\\Register\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKwAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T05:00:09.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\Index.cshtml",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAAOIAAAAAAAAAAADgv+oAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-06T05:00:03.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoryController.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Controllers\\CategoryController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAYwDAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T04:59:52.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "PurchaseController.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Controllers\\PurchaseController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PurchaseController.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Controllers\\PurchaseController.cs",
+              "RelativeToolTip": "Controllers\\PurchaseController.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAowJAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T04:59:47.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\ProductController.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAQwJMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T04:57:48.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T04:59:51.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SupplierController.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Controllers\\SupplierController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SupplierController.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Controllers\\SupplierController.cs",
+              "RelativeToolTip": "Controllers\\SupplierController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T04:59:48.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SaleController.cs",
+              "DocumentMoniker": "D:\\Stock--Management-System\\StockConsume\\Controllers\\SaleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SaleController.cs",
+              "ToolTip": "D:\\Stock--Management-System\\StockConsume\\Controllers\\SaleController.cs",
+              "RelativeToolTip": "Controllers\\SaleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T04:59:44.415Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

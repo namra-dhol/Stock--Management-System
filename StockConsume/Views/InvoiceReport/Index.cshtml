@@ -1,0 +1,163 @@
+@model InvoiceReportViewModel
+@{
+    ViewData["Title"] = "Invoice Report";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Invoice Report</h2>
+    <a asp-controller="InvoiceReport" asp-action="Create" class="btn btn-primary-custom">
+        <i class="bi bi-plus-circle me-2"></i>Create New Invoice
+    </a>
+</div>
+
+<!-- Filter Form -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0">Filter Invoices</h5>
+    </div>
+    <div class="card-body">
+        <form asp-action="Filter" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label asp-for="FromDate" class="form-label"></label>
+                        <input asp-for="FromDate" class="form-control" type="date" />
+                        <span asp-validation-for="FromDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label asp-for="ToDate" class="form-label"></label>
+                        <input asp-for="ToDate" class="form-control" type="date" />
+                        <span asp-validation-for="ToDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label asp-for="CustomerId" class="form-label"></label>
+                        <select asp-for="CustomerId" asp-items="Model.CustomerList" class="form-select">
+                            <option value="">All Customers</option>
+                        </select>
+                        <span asp-validation-for="CustomerId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label class="form-label">&nbsp;</label>
+                        <div>
+                            <button type="submit" class="btn btn-primary-custom me-2">
+                                <i class="bi bi-search me-1"></i>Filter
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-clockwise me-1"></i>Reset
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Summary Cards -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title text-primary">@Model.TotalInvoices</h5>
+                <p class="card-text">Total Invoices</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title text-success">₹@Model.TotalAmount.ToString("N2")</h5>
+                <p class="card-text">Total Amount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title text-warning">@Model.PendingInvoices</h5>
+                <p class="card-text">Pending</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title text-danger">@Model.OverdueInvoices</h5>
+                <p class="card-text">Overdue</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Invoices Table -->
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Invoice #</th>
+                        <th>Date</th>
+                        <th>Customer</th>
+                        <th>Sale ID</th>
+                        <th>Sub Total</th>
+                        <th>Discount</th>
+                        <th>Tax</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th style="width: 120px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Invoices != null && Model.Invoices.Any())
+                    {
+                        foreach (var invoice in Model.Invoices)
+                        {
+                            <tr>
+                                <td>@invoice.InvoiceNumber</td>
+                                <td>@invoice.InvoiceDate?.ToString("MMM dd, yyyy")</td>
+                                <td>@invoice.Customer?.CustomerName</td>
+                                <td>@invoice.SaleId</td>
+                                <td>₹@invoice.SubTotal?.ToString("N2")</td>
+                                <td>₹@invoice.DiscountAmount?.ToString("N2")</td>
+                                <td>₹@invoice.TaxAmount?.ToString("N2")</td>
+                                <td>₹@invoice.TotalAmount?.ToString("N2")</td>
+                                <td>
+                                    <span class="badge @(invoice.Status switch {
+                                        "Paid" => "bg-success",
+                                        "Pending" => "bg-warning",
+                                        "Overdue" => "bg-danger",
+                                        _ => "bg-secondary"
+                                    })">
+                                        @invoice.Status
+                                    </span>
+                                </td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@invoice.InvoiceId" class="btn btn-sm btn-info">
+                                        <i class="bi bi-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="10" class="text-center text-muted">No invoices found for the selected criteria.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,180 @@
+@model QueryDTO
+@{
+    ViewData["Title"] = "Send Query";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Send Customer Query</h2>
+    <a asp-controller="Query" asp-action="Test" class="btn btn-secondary">
+        <i class="bi bi-arrow-left me-2"></i>Back to Test
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="SendQuery" asp-controller="Query" method="post">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ProductId" class="form-label">Product *</label>
+                    <select asp-for="ProductId" asp-items="ViewBag.ProductList" class="form-control" required onchange="loadProductDetails(this.value)">
+                        <option value="">-- Select Product --</option>
+                    </select>
+                    <span asp-validation-for="ProductId" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="CategoryId" class="form-label">Category</label>
+                    <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-control">
+                        <option value="">-- Select Category --</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="SupplierId" class="form-label">Supplier</label>
+                    <select asp-for="SupplierId" asp-items="ViewBag.SupplierList" class="form-control">
+                        <option value="">-- Select Supplier --</option>
+                    </select>
+                    <span asp-validation-for="SupplierId" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="QueryDate" class="form-label">Query Date</label>
+                    <input asp-for="QueryDate" class="form-control" type="datetime-local" readonly />
+                    <span asp-validation-for="QueryDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr />
+
+            <h5>Customer Information</h5>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="CustomerName" class="form-label">Customer Name</label>
+                    <input asp-for="CustomerName" class="form-control" />
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="CustomerEmail" class="form-label">Customer Email</label>
+                    <input asp-for="CustomerEmail" class="form-control" type="email" />
+                    <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="CustomerPhone" class="form-label">Customer Phone</label>
+                    <input asp-for="CustomerPhone" class="form-control" />
+                    <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label asp-for="Message" class="form-label">Message</label>
+                    <textarea asp-for="Message" class="form-control" rows="4" placeholder="Enter your query message here..."></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-envelope me-2"></i>Send Query
+                </button>
+                <a asp-controller="Query" asp-action="Test" class="btn btn-secondary">
+                    <i class="bi bi-x-circle me-2"></i>Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Product Details Modal -->
+<div class="modal fade" id="productDetailsModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Product Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="productDetailsContent">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Set current date and time
+    document.addEventListener('DOMContentLoaded', function() {
+        const now = new Date();
+        const dateTimeInput = document.querySelector('input[name="QueryDate"]');
+        if (dateTimeInput) {
+            const localDateTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+            dateTimeInput.value = localDateTime;
+        }
+    });
+
+    // Load product details
+    function loadProductDetails(productId) {
+        if (!productId) return;
+
+        fetch(`@Url.Action("GetProduct", "Query")/${productId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const product = data.product;
+                    const content = `
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Product Name:</strong><br>
+                                ${product.productName || 'N/A'}
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Unit:</strong><br>
+                                ${product.unit || 'N/A'}
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <strong>Cost Price:</strong><br>
+                                ₹${product.costPrice || 0}
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Selling Price:</strong><br>
+                                ₹${product.sellingPrice || 0}
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <strong>Stock Level:</strong><br>
+                                ${product.stockLevel || 0}
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Category:</strong><br>
+                                ${product.category?.categoryName || 'N/A'}
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.getElementById('productDetailsContent').innerHTML = content;
+                    
+                    // Show modal
+                    const modal = new bootstrap.Modal(document.getElementById('productDetailsModal'));
+                    modal.show();
+                } else {
+                    alert('Failed to load product details: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading product details:', error);
+                alert('An error occurred while loading product details.');
+            });
+    }
+</script>
